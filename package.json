@@ -1,0 +1,47 @@
+{
+  "name": "metarviewer",
+  "version": "1.0.0",
+  "description": "In game search METAR",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run copypublic & npm run debug | npm run httpserver",
+    "start:linux": "npm run copypublic:linux & npm run debug | npm run httpserver",
+    "build": "npm run build-html & npm run build-fspm",
+    "build:linux": "npm run copypublic:linux & npm run browserify & npm run uglify & node hashjs.js",
+    "build-fspm": "fspm app pack -t ./.fspm-build -p ./package.json -o ./fspm-build/vfrmap ./dist",
+    "build-html": "npm run copypublic & npm run browserify & npm run uglify & node hashjs.js",
+    "debug": "watchify src/main.js -t [ browserify-css --minify=true -o ./dist/css/bundle.css ] -o dist/js/bundle.min.js -v --debug -t [ babelify --presets [@babel/preset-env] ]",
+    "browserify": "browserify src/main.js -t [ browserify-css --minify=true -o dist/css/bundle.css ] -o dist/js/bundle.min.js -t [ babelify --presets [@babel/preset-env] ]",
+    "uglify": "uglifyjs dist/js/bundle.min.js -o dist/js/bundle.min.js",
+    "httpserver": "http-server -c-1 -g --port 8080 dist",
+    "copypublic": "rd /s /q .\\dist & mkdir .\\dist & xcopy /s /Y .\\public .\\dist & mkdir .\\dist\\js",
+    "copypublic:linux": "rm -rf ./dist && cp -r ./public ./dist && mkdir ./dist/js"
+
+  },
+  "author": "Thompas Philibert",
+  "maintainers": [
+    "thomas"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fspm-lib": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-conditional-compile": "0.0.5",
+    "babel-polyfill": "^6.26.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.1",
+    "browserify-css": "^0.15.0",
+    "csv-parser": "^2.3.3",
+    "http-browser": "^0.1.31",
+    "http-server": "^0.12.3",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "watchify": "^3.11.1"
+  },
+  "fspm": {
+    "title": "METAR Viewer"
+  }
+}

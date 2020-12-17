@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport",content="width=device-width, initial-scale=1.0"/>
+    <title>METAR Viewer</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="form">
+        <input id="icao" placeholder="ICAO" type="text" maxlength="4"/>
+        <input id="submit" type="submit" value="search" />
+      </div>
+      <div class="hidden" id="error" ><div>Sorry, METAR Not found</div></div>
+      <div class="hidden"  id="result">
+        <div id="station">
+          <div class="placeholder" id="stationCity">--</div>
+          <div class="placeholder" id="StationName">--</div>
+        </div>
+        <div id="metar">
+          <div class="placeholder" id="metarRAW">--</div>
+        </div>
+        <div class="resume">
+          <div>Resume</div>
+          <div class="placeholder" id="metarTranslated">--</div>
+        </div> 
+        <div id="more">
+        </div> 
+        <div class="resume">
+          <div>Clouds</div>
+          <div class="placeholder" id="CloudTranslated">--</div>
+        </div>  
+        <div class="no-margin resume">
+          <div>Rain</div>
+          <div class="placeholder" id="RainTranslated">--</div>
+        </div> 
+      </div>
+      <div>v</div>
+    </div>
+    <script src="js/bundle.min.js"></script>
+  </body>
+</html>
