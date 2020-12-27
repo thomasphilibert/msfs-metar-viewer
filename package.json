@@ -16,7 +16,6 @@
     "httpserver": "http-server -c-1 -g --port 8080 dist",
     "copypublic": "rd /s /q .\\dist & mkdir .\\dist & xcopy /s /Y .\\public .\\dist & mkdir .\\dist\\js",
     "copypublic:linux": "rm -rf ./dist && cp -r ./public ./dist && mkdir ./dist/js"
-
   },
   "author": "Thompas Philibert",
   "maintainers": [
