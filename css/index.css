@@ -43,7 +43,7 @@ body{
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #638CB3;
+  /*background-color: #638CB3;*/
   color: var(--c2);
   font-family: var(--font);
 }
@@ -54,11 +54,16 @@ body{
   font-size: calc(var(--minimalFontSize) * 1px);
   color: var(--c3);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   border-radius: 0 0 20px 20px;
   margin:0 15px 15px 15px;
   box-shadow: 0 0 10px var(--c5);
+}
+
+#form>div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #icao{
@@ -193,3 +198,21 @@ body{
   display: none;
 }
 
+#keyboard{
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  padding:0;
+  margin:0;
+  color:white;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+#keyboard>li{
+  border-radius: 5px;
+  background-color: var(--c2);
+  padding: 5px;
+  cursor: pointer;
+}

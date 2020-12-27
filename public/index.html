@@ -8,8 +8,11 @@
   <body>
     <div id="wrapper">
       <div id="form">
-        <input id="icao" placeholder="ICAO" type="text" maxlength="4"/>
-        <input id="submit" type="submit" value="search" />
+        <ul id="keyboard"></ul>
+        <div>
+          <input id="icao" placeholder="ICAO" type="text" maxlength="4" disabled />
+          <input id="submit" type="submit" value="search" />
+      </div>
       </div>
       <div class="hidden" id="error" ><div>Sorry, METAR Not found</div></div>
       <div class="hidden"  id="result">
@@ -35,7 +38,7 @@
           <div class="placeholder" id="RainTranslated">--</div>
         </div> 
       </div>
-      <div>v</div>
+      <div></div>
     </div>
     <script src="js/bundle.min.js"></script>
   </body>

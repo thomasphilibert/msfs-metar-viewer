@@ -1,8 +1,29 @@
 
 require('../css/index.css')
 
+import { clear } from 'console';
 import { Fspm } from 'fspm-lib';
 const http = require("http")
+
+const keyboard = document.querySelector('#keyboard')
+for (var i = 0; i < 26; i++) {
+  var li = document.createElement("li");
+  var letter = (i+10).toString(36);
+  li.innerHTML = letter;
+  li.onclick = (event = this) => {
+    var icao = document.querySelector('#icao')
+    icao.value = icao.value + event.target.innerText
+  }
+  keyboard.appendChild(li);
+}
+
+var clearLi = document.createElement("li")
+clearLi.innerHTML = 'Clear'
+clearLi.onclick = () => {
+  var icao = document.querySelector('#icao')
+  icao.value = ''
+}
+keyboard.appendChild(clearLi);
 
 const button = document.querySelector('#submit')
 button.onclick = (e) =>{
